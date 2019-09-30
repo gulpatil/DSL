@@ -51,7 +51,7 @@ job('Maven-Job-_dsl') {
         mailer('gulabrpatil@gmail.com', true, true)
     }
 }
-job('Ansible-test3-dsl') {
+job('Ansible-Git-dsl') {
 
     description('This job is used to populate DB data value')
 
