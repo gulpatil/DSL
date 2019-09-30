@@ -51,3 +51,27 @@ job('Maven-Job-_dsl') {
         mailer('gulabrpatil@gmail.com', true, true)
     }
 }
+job('Ansible-test3-dsl') {
+
+    description('This job is used to populate DB data value')
+
+
+    parameters {
+        choiceParam('People_age', ['97 (default)', '22', '13','44','84'])
+    }
+
+    steps {
+
+        wrappers {
+            colorizeOutput(colorMap = 'xterm')
+      }
+        ansiblePlaybook('/var/jenkins_home/ansible/people.yml') {
+            inventoryPath('/var/jenkins_home/ansible/hosts')
+            colorizedOutput(true)
+            extraVars {
+                extraVar("PEOPLE_AGE", '${People_age}', false)
+            }
+        }
+    }
+}
+
