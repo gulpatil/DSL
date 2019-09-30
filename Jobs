@@ -24,7 +24,7 @@ job('Ansible-test2-dsl') {
 
 job('Maven-Job-_dsl') {
 
-    description('Maven dsl project')
+    description('Maven dsl project called by webhooks dynamics')
 
     scm {
         git('https://github.com/gulpatil/mygitproject.git', 'master', {node -> node / 'extensions' << '' })
